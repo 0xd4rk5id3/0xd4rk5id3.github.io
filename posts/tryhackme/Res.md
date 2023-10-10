@@ -43,7 +43,7 @@ Nmap done: 1 IP address (1 host up) scanned in 11.64 seconds
 ```
 from the scan result above, it can be seen that there are only two ports open on the target system. port (80) which runs Apache HTTP Server, and Port (6379) which runs a DBMS service called redis.
 
-![image](./res/nmap.png)
+![image](/posts/res/nmap.png)
 
 Answering the Questions that were asked
 
