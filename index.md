@@ -22,7 +22,7 @@ title: Home
 * * *
 ### **TryHackMe:~#**
 * * *
-- [[March 03 2023]] [Archangel](https://d4rk5id3r.github.io/posts/tryhackme/Res.html) `LFI Log Poisoning` `CronJob` `SUID Binaries`
+- [[October 10 2023]] [Res](https://d4rk5id3r.github.io/posts/tryhackme/Res.html) `SGBD` `RCE` `Hash-Cracking` `enumeration` `SUID Binaries`
 
 
 
