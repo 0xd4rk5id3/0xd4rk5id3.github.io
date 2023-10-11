@@ -39,6 +39,7 @@ title: Home
 * * *
 ### **HackTheBox:~#**
 * * *
+- [[ August 21 2023]] [Res](https://d4rk5id3r.github.io/posts/hackthebox/topology.html)  `Latex Injection` `Hash-Cracking` `enumeration` `SUID Binaries`
 
 
 
