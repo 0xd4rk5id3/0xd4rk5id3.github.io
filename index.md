@@ -7,7 +7,7 @@ title: Home
 ### Welcome To My Cyber Security Blog, H4X0R
 * * *
 
-Hey You, Yes You, Welcome To My Cyber Security Blog My Name is d4rk5id3 I Posts Different Hacking Tricks, Writeups, Articles, Any Stuffs Related To Hacking Related To Hacking That I Learn 😉.
+Hey You, Yes You, Welcome To My Cyber Security Blog My Name is d4rk5id3 I Posts Different Hacking Tricks, Writeups, Articles, Any Stuffs Related To Hacking That I Learn 😉.
 * * *
 ### Whoami:~#
 * * *
