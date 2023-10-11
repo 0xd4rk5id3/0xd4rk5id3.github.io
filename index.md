@@ -7,8 +7,7 @@ title: Home
 ### Welcome To My Cyber Security Blog, H4X0R
 * * *
 
-👋 Greetings, fellow cyber enthusiasts! I'm d4rk5id3, and I welcome you to my cybersecurity blog. Together, we'll embark on an exhilarating journey into the fascinating world of hacking, cybersecurity CTFs, and all the captivating aspects in between. 🚀 Join me as we delve into the depths of knowledge, explore new horizons, and work together to safeguard our digital realms. Let's dive in, learn, explore, and protect! 🔒
-
+Hey You, Yes You, Welcome To My Cyber Security Blog My Name is d4rk5id3 I Posts Different Hacking Tricks, Writeups, Articles, Any Stuffs Related To Hacking Related To Hacking That I Learn 😉.
 * * *
 ### Whoami:~#
 * * *
