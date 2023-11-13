@@ -43,6 +43,13 @@ Hey You, Yes You, Welcome To My Cyber Security Blog My Name is d4rk5id3. I Posts
 
 
 * * *
+### **Vulnhub:~#**
+* * *
+- [[ November 12 2023]] [Cereal](https://d4rk5id3r.github.io/posts/vulnhub/cereal.html)  `PHP serialization` `RCE` `enumeration` `Command Injection`
+
+
+
+* * *
 ### **CTF Competitions:~#**
 * * *
 
