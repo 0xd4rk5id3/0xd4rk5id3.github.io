@@ -112,7 +112,7 @@ now we would need to transfer this file to our target system by using a simple P
 
 to do this we simply run the following command in the directory we downloaded and saved the linpeas files.
 
-command: ``` python3 -m http.server <port_number>
+command: ``` python3 -m http.server <port_number> ```
 
 
 ![Alt text](/posts/res/cmess17.png)
