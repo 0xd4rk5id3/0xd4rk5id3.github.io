@@ -29,7 +29,7 @@ Hey You, Yes You, Welcome To My Cyber Security Blog My Name is d4rk5id3. I Posts
 * * *
 ### **Proving Grounds:~#**
 * * *
-- [[December 30 2023]] [Monitoring](https://d4rk5id3r.github.io/posts/proving_ground/monitoring.html)  `RCE`  `enumeration` `nagios RCE`
+- [[December 30 2023]] [Monitoring](https://d4rk5id3r.github.io/posts/proving_grounds/monitoring.html)  `RCE`  `enumeration` `nagios RCE`
 
 
 * * *
