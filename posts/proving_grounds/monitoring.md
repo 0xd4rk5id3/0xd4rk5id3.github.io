@@ -40,7 +40,7 @@ well, lets try to use search for an exploit of some sort on using the searchsplo
 
 ![Alt text](/posts/res/mon4.png)
 
-we can load up the metasploit using the following command: 
+we can load up metasploit using the following command: 
 
 ```msfconsole```
 
@@ -49,7 +49,7 @@ we can load up the metasploit using the following command:
 
 ![Alt text](/posts/res/mon5.png)
 
-```use exploit/linux/http/nagios_xi_mibs_authenticated_rce```
+```use exploit/linux/http/nagios_xi_plugins_check_plugin_authenticated_rce```
 
 - ```set RHOST <machine IP> ```
 
