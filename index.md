@@ -1,3 +1,5 @@
+<link rel="shortcut icon" type="image/x-icon" href="https://twitter.com/NwadinobiJude/photo">
+
 ---
 layout: default
 title: Home
