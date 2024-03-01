@@ -2,7 +2,6 @@
 layout: default
 title: Home
 ---
-<h2 class="mume-header" id="mainindexhtml-nbspnbsp-contactcontacthtml"><a href="./index.html">Main</a>&#xA0;&#xA0;&#xA0;<a href="/posts/articles/index.html">Articles</a>&#xA0;&#xA0;&#xA0;<a href="/posts/tryhackme/index.html">TryHackMe</a>&#xA0;&#xA0;&#xA0;<a href="/posts/vulnhub/index.html">VulnHub</a>&#xA0;&#xA0;&#xA0;<a href="/posts/pwntilldawn/index.html">PwnTillDawn</a>&#xA0;&#xA0;&#xA0;<a href="/posts/hackmyvm/index.html">HackMyVm</a>&#xA0;&#xA0;&#xA0;<a href="/posts/echoctf/index.html">echoCTF</a></h2>
 
 
 * * *
@@ -12,7 +11,7 @@ title: Home
 Hey You, Yes You, Welcome To My Cyber Security Blog My Name is d4rk5id3. I Posts each hacking trick/technique/whatever I have learnt from CTFs, real life apps, reading researches, and news 😉.
 * * *
 ### Whoami:~#
-* * *
+
 <hr>
 <br>
 <img style="padding-right: 30px;" align="left"  width="600" height="400" src="https://images.nightcafe.studio/jobs/yHfwoe25J2WpD07jEv8d/yHfwoe25J2WpD07jEv8d--1--zswqx_2x.jpg?tr=w-1600,c-at_max">
