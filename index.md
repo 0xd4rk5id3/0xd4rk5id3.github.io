@@ -12,7 +12,6 @@ Hey You, Yes You, Welcome To My Cyber Security Blog My Name is d4rk5id3. I Posts
 * * *
 ### Whoami:~#
 * * *
-
 <hr>
 <br>
 <img style="padding-right: 30px;" align="left"  width="600" height="400" src="https://images.nightcafe.studio/jobs/yHfwoe25J2WpD07jEv8d/yHfwoe25J2WpD07jEv8d--1--zswqx_2x.jpg?tr=w-1600,c-at_max">
