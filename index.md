@@ -1,4 +1,3 @@
-<link rel="shortcut icon" type="image/x-icon" href="https://twitter.com/NwadinobiJude/photo">
 
 ---
 layout: default
@@ -14,11 +13,18 @@ Hey You, Yes You, Welcome To My Cyber Security Blog My Name is d4rk5id3. I Posts
 ### Whoami:~#
 * * *
 
-- **My Name:**    `Jude Nwadinobi`
-- **Also Known As:** `D4rk5id3`
-- **What Do I Do:**  `CTF / Ethical Hacking / Pentetration Testing`
-- **Twitter:** `https://twitter.com/NwadinobiJude`
-- **Github:** `https://github.com/d4rk5id3r`
+<hr>
+<br>
+<img style="padding-right: 30px;" align="left"  width="600" height="400" src="https://user-images.githubusercontent.com/69868171/217498714-2b7c3e24-da81-43dd-9deb-f7911ba45415.png">
+<br>
+<p><strong>Name :</strong> <a href="#">Jude Nwadinobi</a></p>
+<p><strong>Known as :</strong> <a href="#">d4rk5id3</a></p>
+<p><strong>What Do I Do :</strong> <a href="#">CTF / Red Teaming / Penetration tester</a></p>
+<p><strong>GitHub :</strong> <a href="https://github.com/d4rk5id3r">github.com/d4rk5id3r</a></p>
+<p><strong>Twitter :</strong> <a href="https://twitter.com/NwadinobiJude">twitter.com/JudeNwadinobi</a></p>
+<p><strong>Certifications :</strong> <a href="#">eJPT</a></p>
+<br clear="left">
+<br clear="left">
 
 * * *
 ### **TryHackMe:~#**
