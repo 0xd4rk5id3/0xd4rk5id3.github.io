@@ -35,8 +35,8 @@ cat file
 ```
 ![image](/posts/res/w.png)
 so from the content of the file we now have a Username and password.
-username: john
-password: password
+username: ***john***
+password: ***password***
 
 ##Enumerating HTTP(Port 80 and 62337)
 since we have a web server running on port 80, lets head over to our web browser.
