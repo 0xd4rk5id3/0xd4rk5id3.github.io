@@ -33,7 +33,7 @@ now lets cat out the content of the file :
 cp - file
 cat file
 ```
-![[/posts/res/ide_w.png]]
+![image](/posts/res/w.png)
 so from the content of the file we now have a Username and password.
 username: john
 password: password
