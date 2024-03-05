@@ -54,6 +54,7 @@ so we can try to login as ***lin*** using ssh
 ```
 command used: ssh lin@<TARGET_IP>
 ```
+![image](/posts/res/BH7.png)
 
 and now to locate the user flag, simply list out the contents of Desktop Directory.
 
