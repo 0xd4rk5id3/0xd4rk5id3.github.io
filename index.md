@@ -33,7 +33,8 @@ Hey You, Yes You, Welcome To My Cyber Security Blog My Name is d4rk5id3. I Posts
 - [[December 25 2023]] [Cmess](https://d4rk5id3r.github.io/posts/tryhackme/cmess.html) `Security`  `cron` `enumeration` `tar` `cms`
 - [[March 1 2024]] [Source](https://d4rk5id3r.github.io/posts/tryhackme/Source.html) `webmin`  `RCE` `CVE-2019-15107`
 - [[March 2 2024]] [IDE](https://d4rk5id3r.github.io/posts/tryhackme/IDE.html) `Enumeration`  `FTP` `Public-Exploit`
-- [[March 4 2024]] [Bounty Hacker](https://d4rk5id3r.github.io/posts/tryhackme/BountyHacker.html) `Enumeration`  `FTP` `tar` `Priv-esc` 
+- [[March 4 2024]] [Bounty Hacker](https://d4rk5id3r.github.io/posts/tryhackme/BountyHacker.html) `Enumeration`  `FTP` `tar` `Priv-esc`
+- [[March 5 2024]] [Blueprint](https://d4rk5id3r.github.io/posts/tryhackme/BluePrint.html) `Enumeration`  `Windows` `NTLM` `Hash-cracking` 
 
 * * *
 ### **Proving Grounds:~#**
