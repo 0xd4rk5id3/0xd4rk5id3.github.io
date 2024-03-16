@@ -8,10 +8,10 @@ Hello and welcome! This walkthrough covers some of the challenges I solved in th
 To solve this, we simply download the challenge file and extract it to our computer.
 
 Navigating into the extracted folder, we find a bash script called _**script.sh**_.
-![[1.png]]
+![image](/posts/res/HTB_1.png)
 We can open the file in our text editor. Going through the code, we see that it executes some kind of SSH connection commands. We can quickly point out some key details from the code.
 
-![[2.png]]
+![image](/posts/res/HTB_2.png)
 We notice the first part of the flag in the top section of the code _**tS_u0y_ll1w{BTH**_, and we can also see a base64 string at the bottom section of the code _**NG5kX3kwdVJfR3IwdU5kISF9**_. Now, let's try decoding the base64 code.
 
 we use the following command: 
@@ -21,7 +21,7 @@ we use the following command:
 And we get the following as our decoded result: _**4nd_y0uR_Gr0uNd!!**_ 
 
 
-![[3.png]]
+![image](/posts/res/HTB_3.png)
 
 FLAG: ***HTB{w1ll_y0u_St4nd_y0uR_Gr0uNd!!}***
 
@@ -39,7 +39,7 @@ FLAG: ***HTB{w1ll_y0u_St4nd_y0uR_Gr0uNd!!}***
 for this challenge we are giving a file. we can view the file in our text editor.
 we can see that this is a captured request packet.
 
-![[4.png]]
+![image](/posts/res/HTB_4.png)
  scrolling to the bottom of the file we see that some part of the packet is encrypted in base64.
 ```
  PGh0bWw+DQo8aGVhZD4NCjx0aXRsZT48L3RpdGxlPg0KPGJvZHk+DQo8c2NyaXB0IGxhbmd1YWdl
@@ -112,7 +112,7 @@ document.write(unescape('%3c%68%74%6d%6c%3e%0d%0a%3c%68%65%61%64%3e%0d%0a%3c%74%
 from the decoded text we have a url encode text now lets decode that to get the final text.
 to decode the text we would be making use of cyberchef ***url decode*** recipe.
 
-![[5.png]]
+![image](/posts/res/HTB_5.png)
 
 
 FLAG: ***HTB{4n0th3r_d4y_4n0th3r_ph1sh1ng_4tt3mpT}***
@@ -132,9 +132,11 @@ command used :
 nc 94.237.53.3 49080
 ```
 
-we are asked to enter an index of the flag we want to get.![[6.png]]
+we are asked to enter an index of the flag we want to get.
+
+![image](/posts/res/HTB_6.png)
 so we can just input a random index to test.
-![[7.png]]
+![image](/posts/res/HTB_7.png)
 we get parts of the flag for every index we request
 
 To solve this, I didn't automate the process; instead, I inputted the indexes manually. To obtain the flag, you can write a script to automate the process, or simply continue entering numbers from 1 to 101.
@@ -168,7 +170,7 @@ print(original_flag)
 ```
 
 we can get the flag.
-![[8.png]]
+![image](/posts/res/HTB_8.png)
 
 FLAG: ***HTB{4_b3tTeR_w3apOn_i5_n3edeD!?!}*** 
 
@@ -185,7 +187,8 @@ In a world divided by factions, "AM," a young hacker from the Phreaks, found him
 we download the required files and extract it. navigating through the folders we come across a pdf file called ***factory.pdf***  in the following path ```fs/saveDevice/SavedJobs/InProgress/```
 
 now from  viewing the pdf we notice the flag located at the bottom of the page.
-![[9.png]]
+
+![image](/posts/res/HTB_9.png)
 
 FLAG: ***HTB{1n7323571n9_57uff_1n51d3_4_p21n732}*** 
 
