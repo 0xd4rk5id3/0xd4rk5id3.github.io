@@ -65,6 +65,8 @@ Hey You, Yes You, Welcome To My Cyber Security Blog My Name is d4rk5id3. I Posts
 * * *
 ### **CTF Competitions:~#**
 * * *
+- [[ March 16 2023]] [HTB Cyber Apocalypse 2024](https://d4rk5id3r.github.io/posts/v/HTB-Cyber-Apocalypse-CTF-2024-Write-up.html)  `Forensics` `Binary-Exploitation` `Misc` `Cryptography` `Hardware`
+
 
 
 
