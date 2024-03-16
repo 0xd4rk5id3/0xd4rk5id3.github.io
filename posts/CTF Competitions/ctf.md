@@ -1,22 +1,24 @@
-Hello welcome, this walkthrough is for some of the challenges i solved in the HTB cyber Apocalypse CTF 2024.
+Hello and welcome! This walkthrough covers some of the challenges I solved in the HTB Cyber Apocalypse CTF 2024.
+## CHALLENGE NAME
 
-#Forensics It Has Begun
+### It Has Begun
 
-to solve this we simply download the challenge file and extract it to our computer.
+***The Fray is upon us, and the very first challenge has been released! Are you ready factions!? Considering this is just the beginning, if you cannot musted the teamwork needed this early, then your doom is likely inevitable.***
 
-navigating into the extracted folder we have a bash script called  ***script.sh***
+To solve this, we simply download the challenge file and extract it to our computer.
+
+Navigating into the extracted folder, we find a bash script called _**script.sh**_.
 ![[1.png]]
-we can open the file in our text editor 
-going through the code we see that it executes some kind of ssh connection commands but we can quickly point out some key details from the code.
+We can open the file in our text editor. Going through the code, we see that it executes some kind of SSH connection commands. We can quickly point out some key details from the code.
 
 ![[2.png]]
-we notice the first part of the flag in the top section of the code ***tS_u0y_ll1w{BTH*** and we can also see a base64 string at the bottom section of the code ***NG5kX3kwdVJfR3IwdU5kISF9*** . now lets try decoding the base64 code.
+We notice the first part of the flag in the top section of the code _**tS_u0y_ll1w{BTH**_, and we can also see a base64 string at the bottom section of the code _**NG5kX3kwdVJfR3IwdU5kISF9**_. Now, let's try decoding the base64 code.
+
 we use the following command: 
 
 ``` echo NG5kX3kwdVJfR3IwdU5kISF9 | base64 -d ```
 
-and we get the following as our decoded result 
-***4nd_y0uR_Gr0uNd!!} 
+And we get the following as our decoded result: _**4nd_y0uR_Gr0uNd!!**_ 
 
 
 ![[3.png]]
@@ -28,9 +30,14 @@ FLAG: ***HTB{w1ll_y0u_St4nd_y0uR_Gr0uNd!!}***
 
 
 
-Forensics_ URGENT
+## CHALLENGE NAME
+
+### Urgent - Forensics
+
+***In the midst of Cybercity's "Fray," a phishing attack targets its factions, sparking chaos. As they decode the email, cyber sleuths race to trace its source, under a tight deadline. Their mission: unmask the attacker and restore order to the city. In the neon-lit streets, the battle for cyber justice unfolds, determining the factions' destiny.*** 
+
 for this challenge we are giving a file. we can view the file in our text editor.
-we can see that this is a captured request packet 
+we can see that this is a captured request packet.
 
 ![[4.png]]
  scrolling to the bottom of the file we see that some part of the packet is encrypted in base64.
@@ -88,7 +95,7 @@ DQoNCg0KDQoNCg==
 
 to decode this we would be making use of Cyberchef to decode the base64 string.
 
-the output from cyberchef gives us an obfuscated javascript now lets try to also decode this.
+the output from cyberchef gives us an javascript code obfuscated by url encoding now lets try to also decode this.
 ```
 <html>
 <head>
@@ -102,7 +109,7 @@ document.write(unescape('%3c%68%74%6d%6c%3e%0d%0a%3c%68%65%61%64%3e%0d%0a%3c%74%
 
 ```
 
-from the decoded text we have a url encode text now lets decode that to get the final text
+from the decoded text we have a url encode text now lets decode that to get the final text.
 to decode the text we would be making use of cyberchef ***url decode*** recipe.
 
 ![[5.png]]
@@ -111,6 +118,78 @@ to decode the text we would be making use of cyberchef ***url decode*** recipe.
 FLAG: ***HTB{4n0th3r_d4y_4n0th3r_ph1sh1ng_4tt3mpT}***
 
 
+CHALLENGE NAME
 
+Character
+
+Security through Induced Boredom is a personal favourite approach of mine. Not as exciting as something like The Fray, but I love making it as tedious as possible to see my secrets, so you can only get one character at a time!
+
+
+for this challenge we spawn our docker instance and the connect to it via terminal.
+
+command used : 
+```
+nc 94.237.53.3 49080
+```
+
+we are asked to enter an index of the flag we want to get.![[6.png]]
+so we can just input a random index to test.
+![[7.png]]
+we get parts of the flag for every index we request
+
+To solve this, I didn't automate the process; instead, I inputted the indexes manually. To obtain the flag, you can write a script to automate the process, or simply continue entering numbers from 1 to 101.
+
+FLAG: ***HTB{tH15_1s_4_r3aLly_l0nG_fL4g_i_h0p3_f0r_y0Ur_s4k3_tH4t_y0U_sCr1pTEd_tH1s_oR_els3_iT_t0oK_qU1t3_l0ng!!}*** 
+
+
+
+## CHALLENGE NAME
+
+### Makeshift - Crypto
+
+Weak and starved, you struggle to plod on. Food is a commodity at this stage, but you can’t lose your alertness - to do so would spell death. You realise that to survive you will need a weapon, both to kill and to hunt, but the field is bare of stones. As you drop your body to the floor, something sharp sticks out of the undergrowth and into your thigh. As you grab a hold and pull it out, you realise it’s a long stick; not the finest of weapons, but once sharpened could be the difference between dying of hunger and dying with honour in combat.
+
+to solve this we are giving two files ***output.txt*** and ***source.py***  
+upon viewing the ***output*** file we can see that our flag is reversed using the ***source.py*** script
+we an make use of a simple python script to reverse the flag to its right form.
+
+```
+reversed_flag = "!?}De!e3d_5n_nipaOw_3eTR3bt4{_THB"
+
+original_flag = ''
+for i in range(0, len(reversed_flag), 3):
+    original_flag += reversed_flag[i+2]
+    original_flag += reversed_flag[i]
+    original_flag += reversed_flag[i+1]
+
+# Now, the original flag is reconstructed
+print(original_flag)
+
+```
+
+we can get the flag.
+![[8.png]]
+
+FLAG: ***HTB{4_b3tTeR_w3apOn_i5_n3edeD!?!}*** 
+
+
+
+## CHALLENGE NAME
+
+### Maze  - Hardware
+
+
+
+In a world divided by factions, "AM," a young hacker from the Phreaks, found himself falling in love with "echo," a talented security researcher from the Revivalists. Despite the different backgrounds, you share a common goal: dismantling The Fray. You still remember the first interaction where you both independently hacked into The Fray's systems and stumbled upon the same vulnerability in a printer. Leaving behind your hacker handles, "AM" and "echo," you connected through IRC channels and began plotting your rebellion together. Now, it's finally time to analyze the printer's filesystem. What can you find?
+
+we download the required files and extract it. navigating through the folders we come across a pdf file called ***factory.pdf***  in the following path ```fs/saveDevice/SavedJobs/InProgress/```
+
+now from  viewing the pdf we notice the flag located at the bottom of the page.
+![[9.png]]
+
+FLAG: ***HTB{1n7323571n9_57uff_1n51d3_4_p21n732}*** 
+
+
+## [STILL UPDATING]
 
 
