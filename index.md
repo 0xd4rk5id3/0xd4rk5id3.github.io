@@ -51,6 +51,7 @@ Hey You, Yes You, Welcome To My Cyber Security Blog My Name is d4rk5id3. I Posts
 ### **HackTheBox:~#**
 * * *
 - [[ August 21 2023]] [Topology](https://d4rk5id3r.github.io/posts/hackthebox/topology.html)  `Latex Injection` `Hash-Cracking` `enumeration` `SUID Binaries`
+- [[ August 21 2023]] [Topology](https://d4rk5id3r.github.io/posts/hackthebox/pov.html)  `.NET Deserialization` `enumeration` `Token-Abuse``
 
 
 
