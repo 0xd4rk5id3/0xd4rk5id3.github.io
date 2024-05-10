@@ -34,7 +34,9 @@ Hey You, Yes You, Welcome To My Cyber Security Blog My Name is d4rk5id3. I Posts
 - [[March 1 2024]] [Source](https://d4rk5id3r.github.io/posts/tryhackme/Source.html) `webmin`  `RCE` `CVE-2019-15107`
 - [[March 2 2024]] [IDE](https://d4rk5id3r.github.io/posts/tryhackme/IDE.html) `Enumeration`  `FTP` `Public-Exploit`
 - [[March 4 2024]] [Bounty Hacker](https://d4rk5id3r.github.io/posts/tryhackme/BountyHacker.html) `Enumeration`  `FTP` `tar` `Priv-esc`
-- [[March 5 2024]] [Blueprint](https://d4rk5id3r.github.io/posts/tryhackme/BluePrint.html) `Enumeration`  `Windows` `NTLM` `Hash-cracking` 
+- [[March 5 2024]] [Blueprint](https://d4rk5id3r.github.io/posts/tryhackme/BluePrint.html) `Enumeration`  `Windows` `NTLM` `Hash-cracking`
+- [[May 11 2024]] [Alfred](https://d4rk5id3r.github.io/posts/tryhackme/Alfred Walkthrough.html) `Enumeration`  `Windows` `Token-Impersonation` `` 
+
 
 * * *
 ### **Proving Grounds:~#**
@@ -51,7 +53,7 @@ Hey You, Yes You, Welcome To My Cyber Security Blog My Name is d4rk5id3. I Posts
 ### **HackTheBox:~#**
 * * *
 - [[ August 21 2023]] [Topology](https://d4rk5id3r.github.io/posts/hackthebox/topology.html)  `Latex Injection` `Hash-Cracking` `enumeration` `SUID Binaries`
-- [[ August 21 2023]] [Topology](https://d4rk5id3r.github.io/posts/hackthebox/pov.html)  `.NET Deserialization` `enumeration` `Token-Abuse``
+- [[ March 28 2024]] [POV](https://d4rk5id3r.github.io/posts/hackthebox/pov.html)  `.NET Deserialization` `enumeration` `Token-Abuse`
 
 
 
