@@ -1,6 +1,6 @@
 hello h4x0r, today i would be walking you through the process of pwning the alfred machine on THM.
 
-#Enumeration 
+<h3>Enumeration</h3> 
 first of all like all other machines, we must begin with an nmap scan. this allows us to discover all open ports and services running on our target machine.
 
 ```
@@ -111,7 +111,7 @@ you can view the file by using the following command
 type user.txt
 ```
 
-**Privilege Escalation** 
+<h3> Privilege Escalation </h3>
 
 to begin the privilege escalation process, we are asked to generate a Windows meterpreter reverse shell using msfvenom.
 to do this, we make use of the following command
