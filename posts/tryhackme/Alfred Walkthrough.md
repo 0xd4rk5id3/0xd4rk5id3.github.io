@@ -1,3 +1,5 @@
+<h2>Exploit Jenkins to gain an initial shell, then escalate your privileges by exploiting Windows authentication tokens.</h2>
+
 hello h4x0r, today i would be walking you through the process of pwning the alfred machine on THM.
 
 <h3>Enumeration</h3> 
