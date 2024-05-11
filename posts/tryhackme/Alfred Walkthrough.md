@@ -242,6 +242,6 @@ cat root.txt
 ```
 
 
-![[29.png]]
+![image](/posts/res/alfred_29.png)
 
 and thats all for this box!!!
