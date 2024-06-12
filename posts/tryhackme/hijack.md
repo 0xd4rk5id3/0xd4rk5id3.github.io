@@ -100,7 +100,8 @@ now we can access the mounted share directory
 
 we find a file in the directory. viewing this file gives us the credentials to the FTP service.
 
-``` ftp <IP>
+```
+ftp <IP>
 Username: ftpuser
 Password: W3stV1rg1n14M0un741nM4m4
 
