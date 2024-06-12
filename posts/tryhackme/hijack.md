@@ -10,7 +10,7 @@ we always begin with an nmap scan
 nmap -sC -sV -P0 <IP>
 ```
 
-![Alt text](1.png)
+![Alt text](/posts/res/hij_1.png)
 
 from our scan results, we can see that we have a couple of ports open on the target machine.
 
@@ -22,7 +22,7 @@ from our scan results, we can see that we have a couple of ports open on the tar
 
 since we have http port open, lets head over to our web browser to see what is hosted on the server.
 
-![Alt text](2.png)
+![Alt text](/posts/res/hij_2.png)
 
 we have a page which tells us the website is under development.
 
@@ -32,11 +32,11 @@ now i tried to do a manual enumeration of username
 
 first i tried inputing random words in the text field but it just gave me an error. next i tried using the following creds **admin:admin**, but this time i got an error saying incorrect password.
 
-![Alt text](3.png)
+![Alt text](/posts/res/hij_3.png)
 
 this means that we have a user account on the website with the username **admin**
 
-![Alt text](4.png)
+![Alt text](/posts/res/hij_4.png)
 
 so i tried doing a bruteforce, but i guess the website blocks you out after 5 failed login attempts
 
@@ -52,7 +52,7 @@ the **showmount** command is used in Unix-like operating systems to display the 
 showmount -e <IP>
 ```
 
-![Alt text](5.png)
+![Alt text](/posts/res/hij_5.png)
 
 we can see that we have a share on the remote system. let's attempt to mount this on on local machine 
 
@@ -63,7 +63,7 @@ mkdir mounted
 
 sudo mount -t nfs 10.10.158.247:/mnt/share mounted
 ```
-![Alt text](6.png)
+![Alt text](/posts/res/hij_6.png)
 
 with the share mounted, when we try to access the directory we get an error saying we do not have permission.
 
@@ -76,7 +76,7 @@ sudo useradd hijackuser
 sudo passwd hijackuser
 ```
 
-![Alt text](7.png)
+![Alt text](/posts/res/hij_7.png)
 
 
 next we need to edit out `passwd` file and change the UID of our new user account to match 1003.
@@ -96,7 +96,7 @@ su hijackuser
 
 now we can access the mounted share directory 
 
-![Alt text](8.png)
+![Alt text](/posts/res/hij_8.png)
 
 we find a file in the directory. viewing this file gives us the credentials to the FTP service.
 
@@ -108,7 +108,7 @@ Password: W3stV1rg1n14M0un741nM4m4
 ```
 we can see that there are a couple of files on the system.
 
-![Alt text](9.png)
+![Alt text](/posts/res/hij_9.png)
 
 we make use of the following command to get the files to our local machine 
 
@@ -117,7 +117,7 @@ get .from_admin.txt
 get .passwords_list.txt
 
 ```
-![Alt text](10.png)
+![Alt text](/posts/res/hij_10.png)
 
 successfully gotten these files on our local machine, we go ahead to view them
 
@@ -125,7 +125,7 @@ successfully gotten these files on our local machine, we go ahead to view them
  cat .from_admin.txt 
 ```
 
-![Alt text](11.png)
+![Alt text](/posts/res/hij_11.png)
 
 from this we can note that two users have been mentioned in the note **rick** and **admin**. 
 
@@ -134,11 +134,11 @@ we also got a password list.
 attempting to access the admin page we get an error 
 
 
-![Alt text](12.png)
+![Alt text](/posts/res/hij_12.png)
 
 we can attempt to capture the request so we can see what happens behind the scenes when we attempt to access the page 
 
-![Alt text](13.png)
+![Alt text](/posts/res/hij_13.png)
 
 Fortunately, the PHPSESSID follows a straightforward structure. It begins by prefixing the username and appending the MD5 hash of your password. Finally, the entire string is encoded using base64.
 
@@ -151,11 +151,11 @@ since we have a password list, we can  attempt to brute force the Cookie PHPSESS
 
 to do this, we simply send our previously captured request to burp intruder and then specify the parameter we would like to brute force.
 
-![Alt text](14.png)
+![Alt text](/posts/res/hij_14.png)
 
 next we switch over to the payloads tab so we can set our wordlist
 
-![Alt text](15.png)
+![Alt text](/posts/res/hij_15.png)
 
 **Note**: ensure to set the payload processing tab to match the settings displayed in the pcture above.
 
@@ -164,17 +164,17 @@ and then we click on **Start Attack**.
 after a while, we successfully got our password
 
 
-![Alt text](16.png)
+![Alt text](/posts/res/hij_16.png)
 
 
 now we copy the password cookie and head over to our browser's developer's option under the storage tab we can edit the cookie. this would successfully log us in as admin.
 
-![Alt text](17.png)
+![Alt text](/posts/res/hij_17.png)
 
 
 refreshing the page, we can see that we are successfully logged in as admin.
 
-![Alt text](18.png)
+![Alt text](/posts/res/hij_18.png)
 
 the page allows us to view the status of running services on the server. you can try it out by simply entering the following ```ssh.service``` and hit execute.
 
@@ -192,11 +192,11 @@ nc -lnvp 4455
 
 we successfully get a shell once the command gets executed
 
-![Alt text](19.png)
+![Alt text](/posts/res/hij_19.png)
 
 listing  the current directory, we can see the config file.
 
-![Alt text](20.png)
+![Alt text](/posts/res/hij_20.png)
 
 now it's always good practice when doing a box or pentest to check for config files since they might contain username and password which may help in priv-esc.
 
@@ -204,7 +204,7 @@ now it's always good practice when doing a box or pentest to check for config fi
 cat config.php
 ``` 
 
-![Alt text](21.png)
+![Alt text](/posts/res/hij_21.png)
 
 upon viewing the file, we have found the credentials for a user called rick.
 
@@ -217,7 +217,7 @@ su rick
 now we have logged in as rick we can get the user flag
 
 
-![Alt text](22.png)
+![Alt text](/posts/res/hij_22.png)
 
 ## Privilege-Escalation
 
@@ -229,7 +229,7 @@ sudo -l
 
 Based on these sudo permissions, it's evident that sudo retains a particular environment variable named "env_keep," which maintains the value of LD_LIBRARY_PATH. This presents an opportunity for privilege escalation.
 
-![Alt text](23.png)
+![Alt text](/posts/res/hij_23.png)
 
 to escalate our privilege, we create and compile the following file
 
@@ -248,9 +248,9 @@ void hijack() {
 
 we can then transfer the script over to our target system by starting up a simple web server and using the wget command to download the file.
 
-![Alt text](24.png)
+![Alt text](/posts/res/hij_24.png)
 
-![Alt text](25.png)
+![Alt text](/posts/res/hij_25.png)
 
 with the script now on the target machine, let's go ahead and compile it 
 
@@ -262,11 +262,11 @@ gcc -o /tmp/libcrypt.so.1 -shared -fPIC exploit.c
 sudo LD_LIBRARY_PATH=/tmp /usr/sbin/apache2 -f /etc/apache2/apache2.conf -d /etc/apache2
 ```
 
-![Alt text](26.png)
+![Alt text](/posts/res/hij_26.png)
 
 finally, we are root!!!!
 
-![Alt text](27.png)
+![Alt text](/posts/res/hij_27.png)
 
 
 and that's all for this writeup. if you have any issues while using this writeup feel free to reach out to me on twitter(X) [Twitter](https://x.com/NwadinobiJude)
