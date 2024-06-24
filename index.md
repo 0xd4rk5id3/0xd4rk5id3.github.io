@@ -37,7 +37,9 @@ Hey You, Yes You, Welcome To My Cyber Security Blog My Name is d4rk5id3. I Posts
 - [[March 4 2024]] [Bounty Hacker](https://d4rk5id3r.github.io/posts/tryhackme/BountyHacker.html) `Enumeration`  `FTP` `tar` `Priv-esc`
 - [[March 5 2024]] [Blueprint](https://d4rk5id3r.github.io/posts/tryhackme/BluePrint.html) `Enumeration`  `Windows` `NTLM` `Hash-cracking`
 - [[May 11 2024]] [Alfred](https://d4rk5id3r.github.io/posts/tryhackme/Alfred Walkthrough.html) `Enumeration`  `Windows` `Token-Impersonation` ``
-- [[Jun 11 2024]] [Hijack](https://d4rk5id3r.github.io/posts/tryhackme/hijack.html) `Enumeration`  `session-hijacking` 
+- [[Jun 11 2024]] [Hijack](https://d4rk5id3r.github.io/posts/tryhackme/hijack.html) `Enumeration`  `session-hijacking`
+- [[Jun 20 2024]] [Opacity](https://d4rk5id3r.github.io/posts/tryhackme/opacity.html) `Enumeration`  `File-Upload`  
+
 
 
 
