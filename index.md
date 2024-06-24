@@ -14,8 +14,9 @@ Hey You, Yes You, Welcome To My Cyber Security Blog My Name is d4rk5id3. I Posts
 
 <hr>
 <br>
-<img style="padding-right: 30px;" align="left"  width="600" height="400" src="">
+<img style="padding-right: 30px;" align="left"  width="600" height="600" src="/posts/res/images.gif">
 <br>
+<br clear="right">
 <p><strong>Name :</strong> <a href="#">Jude Nwadinobi</a></p>
 <p><strong>Known as :</strong> <a href="#">d4rk5id3</a></p>
 <p><strong>What Do I Do :</strong> <a href="#">CTF / Red Teaming / Penetration tester</a></p>
