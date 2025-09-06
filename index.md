@@ -29,16 +29,16 @@ Hey You, Yes You, Welcome To My Cyber Security Blog My Name is d4rk5id3. I Posts
 * * *
 ### **TryHackMe:~#**
 * * *
-- [[October 10 2023]] [Res](https://d4rk5id3r.github.io/posts/tryhackme/Res.html) `SGBD` `RCE` `Hash-Cracking` `enumeration` `SUID Binaries`
-- [[November 21 2023]] [Overpass](https://d4rk5id3r.github.io/posts/tryhackme/overpass.html) `Security` `owasp top 10` `cron` `enumeration`
-- [[December 25 2023]] [Cmess](https://d4rk5id3r.github.io/posts/tryhackme/cmess.html) `Security`  `cron` `enumeration` `tar` `cms`
-- [[March 1 2024]] [Source](https://d4rk5id3r.github.io/posts/tryhackme/Source.html) `webmin`  `RCE` `CVE-2019-15107`
-- [[March 2 2024]] [IDE](https://d4rk5id3r.github.io/posts/tryhackme/IDE.html) `Enumeration`  `FTP` `Public-Exploit`
-- [[March 4 2024]] [Bounty Hacker](https://d4rk5id3r.github.io/posts/tryhackme/BountyHacker.html) `Enumeration`  `FTP` `tar` `Priv-esc`
-- [[March 5 2024]] [Blueprint](https://d4rk5id3r.github.io/posts/tryhackme/BluePrint.html) `Enumeration`  `Windows` `NTLM` `Hash-cracking`
-- [[May 11 2024]] [Alfred](https://d4rk5id3r.github.io/posts/tryhackme/Alfred Walkthrough.html) `Enumeration`  `Windows` `Token-Impersonation` ``
-- [[Jun 11 2024]] [Hijack](https://d4rk5id3r.github.io/posts/tryhackme/hijack.html) `Enumeration`  `session-hijacking`
-- [[Jun 20 2024]] [Opacity](https://d4rk5id3r.github.io/posts/tryhackme/opacity.html) `Enumeration`  `File-Upload`  
+- [[October 10 2023]] [Res](https://0xd4rk5id3.github.io/posts/tryhackme/Res.html) `SGBD` `RCE` `Hash-Cracking` `enumeration` `SUID Binaries`
+- [[November 21 2023]] [Overpass](https://0xd4rk5id3.github.io/posts/tryhackme/overpass.html) `Security` `owasp top 10` `cron` `enumeration`
+- [[December 25 2023]] [Cmess](https://0xd4rk5id3.github.io/posts/tryhackme/cmess.html) `Security`  `cron` `enumeration` `tar` `cms`
+- [[March 1 2024]] [Source](https://0xd4rk5id3.github.io/posts/tryhackme/Source.html) `webmin`  `RCE` `CVE-2019-15107`
+- [[March 2 2024]] [IDE](https://0xd4rk5id3.github.io/posts/tryhackme/IDE.html) `Enumeration`  `FTP` `Public-Exploit`
+- [[March 4 2024]] [Bounty Hacker](https://0xd4rk5id3.github.io/posts/tryhackme/BountyHacker.html) `Enumeration`  `FTP` `tar` `Priv-esc`
+- [[March 5 2024]] [Blueprint](https://0xd4rk5id3.github.io/posts/tryhackme/BluePrint.html) `Enumeration`  `Windows` `NTLM` `Hash-cracking`
+- [[May 11 2024]] [Alfred](https://0xd4rk5id3.github.io/posts/tryhackme/Alfred Walkthrough.html) `Enumeration`  `Windows` `Token-Impersonation` ``
+- [[Jun 11 2024]] [Hijack](https://0xd4rk5id3.github.io/posts/tryhackme/hijack.html) `Enumeration`  `session-hijacking`
+- [[Jun 20 2024]] [Opacity](https://0xd4rk5id3.github.io/posts/tryhackme/opacity.html) `Enumeration`  `File-Upload`  
 
 
 
@@ -46,7 +46,7 @@ Hey You, Yes You, Welcome To My Cyber Security Blog My Name is d4rk5id3. I Posts
 * * *
 ### **Proving Grounds:~#**
 * * *
-- [[December 30 2023]] [Monitoring](https://d4rk5id3r.github.io/posts/proving_grounds/monitoring.html)  `RCE`  `enumeration` `nagios RCE`
+- [[December 30 2023]] [Monitoring](https://0xd4rk5id3.github.io/posts/proving_grounds/monitoring.html)  `RCE`  `enumeration` `nagios RCE`
 
 
 * * *
@@ -57,23 +57,23 @@ Hey You, Yes You, Welcome To My Cyber Security Blog My Name is d4rk5id3. I Posts
 * * *
 ### **HackTheBox:~#**
 * * *
-- [[ August 21 2023]] [Topology](https://d4rk5id3r.github.io/posts/hackthebox/topology.html)  `Latex Injection` `Hash-Cracking` `enumeration` `SUID Binaries`
-- [[ March 28 2024]] [POV](https://d4rk5id3r.github.io/posts/hackthebox/pov.html)  `.NET Deserialization` `enumeration` `Token-Abuse`
+- [[ August 21 2023]] [Topology](https://0xd4rk5id3.github.io/posts/hackthebox/topology.html)  `Latex Injection` `Hash-Cracking` `enumeration` `SUID Binaries`
+- [[ March 28 2024]] [POV](https://0xd4rk5id3.github.io/posts/hackthebox/pov.html)  `.NET Deserialization` `enumeration` `Token-Abuse`
 
 
 
 * * *
 ### **Vulnhub:~#**
 * * *
-- [[ November 12 2023]] [Cereal](https://d4rk5id3r.github.io/posts/vulnhub/cereal.html)  `PHP serialization` `RCE` `enumeration` `Command Injection` `cron`
-- [[ November 21 2023]] [Jangow](https://d4rk5id3r.github.io/posts/vulnhub/jangow.html)  `` `` `enumeration` `` ``
+- [[ November 12 2023]] [Cereal](https://0xd4rk5id3.github.io/posts/vulnhub/cereal.html)  `PHP serialization` `RCE` `enumeration` `Command Injection` `cron`
+- [[ November 21 2023]] [Jangow](https://0xd4rk5id3.github.io/posts/vulnhub/jangow.html)  `` `` `enumeration` `` ``
 
 
 
 * * *
 ### **CTF Competitions:~#**
 * * *
-- [[ March 16 2023]] [HTB Cyber Apocalypse 2024](https://d4rk5id3r.github.io/posts/CTF Competitions/ctf.html)  `Forensics` `Binary-Exploitation` `Misc` `Cryptography` `Hardware`
+- [[ March 16 2023]] [HTB Cyber Apocalypse 2024](https://0xd4rk5id3.github.io/posts/CTF Competitions/ctf.html)  `Forensics` `Binary-Exploitation` `Misc` `Cryptography` `Hardware`
 
 
 
